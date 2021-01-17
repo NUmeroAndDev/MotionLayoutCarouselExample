@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
+
+    <Transition
+        android:id="@+id/forward"
+        motion:constraintSetEnd="@+id/next"
+        motion:constraintSetStart="@id/base_state">
+        <OnSwipe
+            motion:dragDirection="dragLeft"
+            motion:touchAnchorSide="left" />
+    </Transition>
+
+    <Transition
+        android:id="@+id/backward"
+        motion:constraintSetEnd="@+id/previous"
+        motion:constraintSetStart="@+id/base_state">
+        <OnSwipe
+            motion:dragDirection="dragRight"
+            motion:touchAnchorSide="right" />
+    </Transition>
+
+    <!-- ベースとなるViewの状態を定義する -->
+    <ConstraintSet android:id="@+id/base_state">
+        <Constraint
+            android:id="@+id/textView1"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginEnd="16dp"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintEnd_toStartOf="@id/guideline"
+            motion:layout_constraintTop_toTopOf="parent" />
+        <Constraint
+            android:id="@+id/textView2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="16dp"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintDimensionRatio="w,1:1"
+            motion:layout_constraintEnd_toEndOf="@id/guideline2"
+            motion:layout_constraintHorizontal_bias="0.5"
+            motion:layout_constraintStart_toStartOf="@id/guideline"
+            motion:layout_constraintTop_toTopOf="parent" />
+        <Constraint
+            android:id="@+id/textView3"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="16dp"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintStart_toEndOf="@id/guideline2"
+            motion:layout_constraintTop_toTopOf="parent" />
+    </ConstraintSet>
+
+    <!-- 左へスワイプした時のViewの状態を定義する -->
+    <ConstraintSet android:id="@+id/next">
+        <Constraint
+            android:id="@+id/textView2"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintEnd_toStartOf="@id/guideline"
+            motion:layout_constraintTop_toTopOf="parent" />
+        <Constraint
+            android:id="@+id/textView3"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintDimensionRatio="1:1"
+            motion:layout_constraintEnd_toStartOf="@id/guideline2"
+            motion:layout_constraintStart_toEndOf="@id/guideline"
+            motion:layout_constraintTop_toTopOf="parent" />
+        <Constraint
+            android:id="@+id/textView4"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintStart_toEndOf="@id/guideline2"
+            motion:layout_constraintTop_toTopOf="parent" />
+    </ConstraintSet>
+
+    <!-- 右へスワイプした時のViewの状態を定義する -->
+    <ConstraintSet android:id="@+id/previous">
+        <Constraint
+            android:id="@+id/textView2"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintStart_toStartOf="@id/guideline2"
+            motion:layout_constraintTop_toTopOf="parent" />
+        <Constraint
+            android:id="@+id/textView3"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="16dp"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintStart_toEndOf="@+id/textView2"
+            motion:layout_constraintTop_toTopOf="parent" />
+        <Constraint
+            android:id="@+id/textView1"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintDimensionRatio="1:1"
+            motion:layout_constraintEnd_toStartOf="@id/guideline2"
+            motion:layout_constraintStart_toEndOf="@id/guideline"
+            motion:layout_constraintTop_toTopOf="parent" />
+        <Constraint
+            android:id="@+id/textView0"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginEnd="16dp"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintEnd_toStartOf="@id/guideline"
+            motion:layout_constraintTop_toTopOf="parent" />
+    </ConstraintSet>
+</MotionScene>
